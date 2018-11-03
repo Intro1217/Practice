@@ -1,0 +1,52 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<title>上傳檔案與其他表單欄位 (20-03.htm)</title>
+<script Language="JavaScript">
+<!--
+//Written by Alvin Liao
+function datacheck() {
+  //-----------------------------------------------------
+  //表單(Form)的名稱為「upload」，同時檢查「檔名」是否為「空字串」
+  //-----------------------------------------------------
+  //如果「檔名」為空白，則顯示錯誤訊息，同時將游標置於
+  //該欄位上方，然後跳出datacheck()副程序
+  if ((upload.file1.value == "") && (upload.file2.value == "") &&
+      (upload.file3.value == "")) {
+     focusto(0);
+     window.alert("至少有一個「檔名」不得為空白！");
+  } else {
+     //Submit(傳送)表單資料至Web Server
+     upload.submit();
+  }
+}
+
+function focusto(x) {
+  //將游標定位於某個欄位
+  document.upload.elements(x).focus();
+}
+-->
+</script>
+</head>
+<body>
+<center><h2>
+上傳檔案與其他表單欄位
+</h2></center>
+<form method="post" name="upload" action="20-03.jsp"
+ ENCTYPE="multipart/form-data">
+<img src="../images/BALL8.GIF">檔名一：
+<input type="FILE" size="50" name="file1"><br>
+<img src="../images/BALL8.GIF">文字說明
+<input type="text" size="60" name="desc1" value=""><br>
+<img src="../images/BALL8.GIF">檔名二：
+<input type="FILE" size="50" name="file2"><br>
+<img src="../images/BALL8.GIF">文字說明
+<input type="text" size="60" name="desc2" value=""><br>
+<img src="../images/BALL8.GIF">檔名三：
+<input type="FILE" size="50" name="file3"><br>
+<img src="../images/BALL8.GIF">文字說明
+<input type="text" size="60" name="desc3" value=""><hr>
+<input type="button" value=" 上傳檔案 " onclick="datacheck()">
+</form>
+</body>
+</html>
